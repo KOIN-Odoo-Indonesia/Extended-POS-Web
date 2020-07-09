@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_pos_pouchdb_pos_config_form">
+            <field name="name">pos.pouchdb.pos.config.form</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                
+            </field>
+    </data>
+</odoo>
