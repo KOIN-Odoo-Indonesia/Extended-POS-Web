@@ -13,23 +13,31 @@ odoo.define('pos_pouchdb.database', function (require) {
     var db = require('point_of_sale.DB');
     var _super_db = db.prototype;
     
-    function syncError() {
-        console.log("error");
-    }
+    //function syncError() {
+    //    console.log("error");
+    //}
     
-    function sync() {
+    //function sync() {
         //syncDom.setAttribute('data-sync-state', 'syncing');
-        var opts = {live: true};
-        dbposorders.replicate.to(remotePosOrders, opts, syncError);
-        dbposorders.replicate.from(remotePosOrders, opts, syncError);
-    }
+    //    var opts = {live: true};
+    //    dbposorders.replicate.to(remotePosOrders, opts, syncError);
+    //    dbposorders.replicate.from(remotePosOrders, opts, syncError);
+    //}
 
     db.include({
         init: function (options) {
             this._super(options);
             if (remotePosOrders) {
-                sync();
+                this.sync(true);
             }
+        },
+        sync: function(live){
+            var opts = {live: true};
+            dbposorders.replicate.to(remotePosOrders, opts, this.syncError);
+            dbposorders.replicate.from(remotePosOrders, opts, this.syncError);
+        },
+        syncError: function(){
+            console.log("error");
         },
         save: function(store,data){
             this._super(store,data);

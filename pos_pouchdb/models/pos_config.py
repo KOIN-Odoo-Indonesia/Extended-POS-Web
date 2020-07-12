@@ -8,14 +8,16 @@ import json
 class PosConfig(models.Model):
     _inherit = 'pos.config'
     
-    is_pouchdb = fields.Boolean(
+    iface_pouchdb = fields.Boolean(
         string='Use Pouchdb',
+    )
+    
+    iface_couchdb = fields.Boolean(
+        string='Use CouchDB'
     )
     
     couchdb_url = fields.Char(
         string='CouchDB Server',
+        size=200,
+        help='Format http://username:password@ip_address:port/dbname'
     )
-    
-    
-    
-    
