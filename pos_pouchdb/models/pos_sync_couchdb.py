@@ -17,7 +17,7 @@ class PosSyncCouchDB(models.Model):
         for row in db.view('_all_docs', include_docs=True, limit=1):
             #_logger.info(row['doc'])
             #orders.append(row['doc'])
-            self.env['pos.order'].create_from_ui({'data':row['doc']})
+            self.env['pos.order'].create_from_ui([{'data':row['doc']}])
         _logger.info(orders)   
             
 
