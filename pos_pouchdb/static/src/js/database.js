@@ -26,7 +26,9 @@ odoo.define('pos_pouchdb.database', function (require) {
 
     db.include({
         init: function (options) {
+            var self = this;
             this._super(options);
+            console.log(self);
             if (remotePosOrders) {
                 this.sync(true);
             }

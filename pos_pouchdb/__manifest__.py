@@ -43,6 +43,7 @@ POS PouchDB
         'pos_cache',
     ],
     'data': [
+        'data/pos_poucdb_data.xml',
         'views/templates.xml',
         'views/pos_config_view.xml',
     ],
@@ -58,6 +59,8 @@ POS PouchDB
     ],
     'test': [
     ],
-
+    'external_dependencies': [
+        'couchdb'
+    ],
     'installable': True
 }
