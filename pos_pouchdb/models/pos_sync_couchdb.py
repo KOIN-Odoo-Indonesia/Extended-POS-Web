@@ -13,8 +13,11 @@ class PosSyncCouchDB(models.Model):
     def sync(self):
         couch = couchdb.Server('http://admin:admin123@128.199.175.43:5984')
         db = couch['posorders']
-        for row in db.view('_all_docs'):
-            _logger.info(row.value)
+        orders = []
+        for row in db.view('_all_docs', include_docs=True):
+            #_logger.info(row['doc'])
+            orders.append(row['doc'])
+        _logger.info(orders)   
             
 
 
