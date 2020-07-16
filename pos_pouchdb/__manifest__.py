@@ -59,8 +59,5 @@ POS PouchDB
     ],
     'test': [
     ],
-    'external_dependencies': [
-        'couchdb'
-    ],
     'installable': True
 }
