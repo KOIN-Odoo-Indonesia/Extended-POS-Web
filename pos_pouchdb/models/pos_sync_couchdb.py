@@ -14,9 +14,10 @@ class PosSyncCouchDB(models.Model):
         couch = couchdb.Server('http://admin:admin123@128.199.175.43:5984')
         db = couch['posorders']
         orders = []
-        for row in db.view('_all_docs', include_docs=True):
+        for row in db.view('_all_docs', include_docs=True, limit=1):
             #_logger.info(row['doc'])
-            orders.append(row['doc'])
+            #orders.append(row['doc'])
+            self.env['pos.order'].create_from_ui([row['doc']])
         _logger.info(orders)   
             
 
