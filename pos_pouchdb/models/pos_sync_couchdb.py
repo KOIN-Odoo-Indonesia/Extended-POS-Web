@@ -2,6 +2,8 @@ from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 import logging
 import couchdb
+import random
+import string
 
 
 _logger = logging.getLogger(__name__)
