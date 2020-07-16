@@ -14,7 +14,8 @@ class PosSyncCouchDB(models.Model):
         couch = couchdb.Server('http://admin:admin123@128.199.175.43:5984')
         db = couch['posorders']
         for row in db.view('_all_docs'):
-            _logger.info(row)
+            _logger.info(row.value)
+            
 
 
         
