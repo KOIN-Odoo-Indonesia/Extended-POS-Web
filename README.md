@@ -8,3 +8,10 @@ Requirement untuk testing-nya :
 - odoo13 community edition
 - point_of_sales addons odoo13
 - Couchdb di server yang akan digunakan sebagai odoo server.
+
+Tambahan :
+setelah setup couchdb pastikan untuk allow CORS di server couchdb.
+Caranya :
+1. https://pouchdb.com/guides/setup-couchdb.html#set-up-cors
+2. Aktifkan CORS didalam console couchdb
+
